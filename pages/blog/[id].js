@@ -1,3 +1,4 @@
+import styled from 'styled-components';
 import styles from '../../styles/Home.module.scss'
 
 const BlogId = ({ blog }) => {

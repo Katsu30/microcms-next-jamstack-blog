@@ -1,19 +1,24 @@
 import Link from 'next/link';
+import styled from 'styled-components';
+
+import { CommonLayout } from '../components/Layouts'
 
 const Home = ({ blog }) => {
 
   return (
-    <div>
-      <ul>
-        {blog.map(blog => (
-          <li key={blog.id}>
-            <Link href={`/blog/${blog.id}`}>
-              <a>{blog.title}</a>
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <CommonLayout>
+      <IndexBodyWithStyled>
+        <BlogListUlWithStyled>
+          {blog.map(blog => (
+            <BlogListItemsWithStyled key={blog.id}>
+              <Link href={`/blog/${blog.id}`}>
+                <a>{blog.title}</a>
+              </Link>
+            </BlogListItemsWithStyled>
+          ))}
+        </BlogListUlWithStyled>
+        </IndexBodyWithStyled>
+      </CommonLayout>
   );
 }
 
@@ -32,5 +37,15 @@ export const getStaticProps = async () => {
     }
   }
 }
+
+const IndexBodyWithStyled = styled.div`
+`;
+
+const BlogListUlWithStyled = styled.ul`
+`;
+
+const BlogListItemsWithStyled = styled.li`
+  list-style: none;
+`;
 
 export default Home;
