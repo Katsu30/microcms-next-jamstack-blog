@@ -1,6 +1,7 @@
 import styled from 'styled-components';
-import Head from "next/head"
-import Link from "next/link"
+import Head from 'next/head';
+
+import { GlobalHeader, GlobalFooter } from '../Components/Organisms/Commons';
 
 const CommonLayout = ( props ) => {
   const { title, children } = props;
@@ -13,13 +14,9 @@ const CommonLayout = ( props ) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <GlobalHeaderWithStyled>
-        <HeaderTitleWithStyled>
-          <Link href="/">
-            <HeaderLinkWithStyled>{ siteTitle }</HeaderLinkWithStyled>
-          </Link>
-        </HeaderTitleWithStyled>
-      </GlobalHeaderWithStyled>
+      <GlobalHeaderAreaWithStyled>
+        <GlobalHeaderWithStyled siteTitle={siteTitle}/>
+      </GlobalHeaderAreaWithStyled>
 
       <MainAreaWithStyled>
         { title
@@ -31,7 +28,7 @@ const CommonLayout = ( props ) => {
       </MainAreaWithStyled>
 
       <GlobalFooterWithStyled>
-        &copy; { siteTitle }
+        <GlobalFooter siteTitle={ siteTitle }/>
       </GlobalFooterWithStyled>
     </PageContainerWithStyled>
   );
@@ -39,22 +36,19 @@ const CommonLayout = ( props ) => {
 
 const PageContainerWithStyled = styled.div`
   margin: 0 auto;
-  max-width: 960px;
-  min-height: 100vh;
 `;
 
-const GlobalHeaderWithStyled = styled.header`
+const GlobalHeaderAreaWithStyled = styled.div`
+  border-bottom: solid 1px #555555;
 `;
 
-const HeaderTitleWithStyled = styled.h1`
-`;
-
-const HeaderLinkWithStyled = styled.a`
-  color: inherit;
-  text-decoration: none;
+const GlobalHeaderWithStyled = styled(GlobalHeader)`
 `;
 
 const MainAreaWithStyled = styled.main`
+  max-width: 960px;
+  margin: 0 auto;
+  min-height: 500px;
 `;
 
 const MainTitleWithStyled = styled.h1`
@@ -64,6 +58,7 @@ const MainContentWithStyled = styled.div`
 `;
 
 const GlobalFooterWithStyled = styled.footer`
+  border-top: solid 1px #555555;
 `;
 
 export default CommonLayout;
