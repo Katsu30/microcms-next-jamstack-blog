@@ -1,20 +1,24 @@
 import styled from 'styled-components';
 import styles from '../../styles/Home.module.scss'
 
+import { CommonLayout } from '../../Layouts'
+
 const BlogId = ({ blog }) => {
   // dangerouslySetInnerHTMLはローダッシュ2つ
   return (
-    <main className={ styles.main }>
-      <h1 className={ styles.title }>{blog.title}</h1>
-      <p className={styles.publishedAt}>{blog.publishedAt}</p>
-      <p className={styles.category}>{ blog.category && `${ blog.category.name }` }</p>
-      <div
-        dangerouslySetInnerHTML={{
-          __html: `${blog.body}`,
-        }}
-        className={ styles.post }
-      />
-    </main>
+    <CommonLayout>
+      <main className={ styles.main }>
+        <h1 className={ styles.title }>{blog.title}</h1>
+        <p className={styles.publishedAt}>{blog.publishedAt}</p>
+        <p className={styles.category}>{ blog.category && `${ blog.category.name }` }</p>
+        <div
+          dangerouslySetInnerHTML={{
+            __html: `${blog.body}`,
+          }}
+          className={ styles.post }
+        />
+      </main>
+    </CommonLayout>
   );
 };
 

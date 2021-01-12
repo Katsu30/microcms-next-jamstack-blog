@@ -27,9 +27,9 @@ const CommonLayout = ( props ) => {
         </MainContentWithStyled>
       </MainAreaWithStyled>
 
-      <GlobalFooterWithStyled>
-        <GlobalFooter siteTitle={ siteTitle }/>
-      </GlobalFooterWithStyled>
+      <GlobalFooterAreaWithStyled>
+        <GlobalFooterWithStyled siteTitle={siteTitle}/>
+      </GlobalFooterAreaWithStyled>
     </PageContainerWithStyled>
   );
 }
@@ -46,6 +46,8 @@ const GlobalHeaderWithStyled = styled(GlobalHeader)`
 `;
 
 const MainAreaWithStyled = styled.main`
+  display: flex;
+  flex: 1 0 auto;
   max-width: 960px;
   margin: 0 auto;
   min-height: 500px;
@@ -55,10 +57,15 @@ const MainTitleWithStyled = styled.h1`
 `;
 
 const MainContentWithStyled = styled.div`
+  flex: 1 1 auto;
+  max-width: 100%;
 `;
 
-const GlobalFooterWithStyled = styled.footer`
+const GlobalFooterAreaWithStyled = styled.div`
   border-top: solid 1px #555555;
+`;
+
+const GlobalFooterWithStyled = styled(GlobalFooter)`
 `;
 
 export default CommonLayout;

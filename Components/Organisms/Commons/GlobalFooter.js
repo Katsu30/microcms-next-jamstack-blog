@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
-const GlobalFooter = (props) => {
-  const { siteTitle } = props;
+const GlobalFooter = props => {
+  // const { siteTitle } = props;
 
   return (
     <FooterComponentsWithStyled>
-      <FooterTextWithStyled>&copy; { siteTitle }</FooterTextWithStyled>
+      <FooterTextWithStyled>&copy; { props.siteTitle }</FooterTextWithStyled>
     </FooterComponentsWithStyled>
   );
 }
@@ -17,7 +17,7 @@ const FooterComponentsWithStyled = styled.div`
   justify-content: center;
 `;
 
-const FooterTextWithStyled = styled.p`
+const FooterTextWithStyled = styled.span`
 `;
 
 export default GlobalFooter;

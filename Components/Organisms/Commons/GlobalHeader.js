@@ -15,8 +15,8 @@ const GlobalHeader = props => {
       </HeaderTitleWithStyled>
 
       <HeaderButtonAreaWithStyled>
-        <HeaderButton text={ 'About' } />
-        <HeaderButton text={ 'Posts' } />
+        <HeaderButton text={ 'About' } anchor={ '/about' } />
+        <HeaderButton text={ 'Posts' } anchor={ '/blog' } />
       </HeaderButtonAreaWithStyled>
     </HeaderComponentWithStyled>
   )
